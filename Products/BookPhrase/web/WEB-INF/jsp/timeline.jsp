@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -35,6 +36,12 @@
     </div>
     <!-- #pageHead -->
     <div id="main">
+        <!-- TODO TlListの中身の数だけ、繰り返し、フレーズを表示する。-->
+        <c:forEach var="post" items="${latestTlList}">
+            <section class="bookPhrase">
+                <p><a href="">${post.phrase}</a></p>
+            </section>
+        </c:forEach>
         <section class="bookPhrase">
             <p><a href="">よく見ると、角丸部分からボタンがはみだしていることがわkります。IE9でグラデーションを優先したい場合は、フィルターを追加すればよい
                 のですが、グラデーションしていなくてもボタンとしては機能しますので、IE9ではボタンはグラデーションしないと割り切っても問題ない
