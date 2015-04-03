@@ -1,5 +1,5 @@
 body {
-    font-family: Verdana,Arial;
+    font-family: Verdana, Arial;
     font-size: 16px;
     line-height: 1.4;
 }
@@ -9,41 +9,6 @@ body {
     width: 980px;
 }
 
-/* ヘッダー */
-#pageHead {
-    margin-bottom: 15px;
-}
-#pageHead ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    line-height: 1.2;
-}
-#pageHead ul:after {
-    content: "";
-    clear: both;
-    display: block;
-}
-#pageHead ul li {
-    width: 245px;
-    float: left;
-}
-#pageHead ul li:nth-child(1){
-    width: auto;
-    font-size: 30px;
-    line-height: 1.2;
-}
-#pageHead ul li:nth-child(2),
-#pageHead ul li:nth-child(3) {
-    vertical-align: bottom;
-    margin-left: 20px;
-}
-#pageHead ul li form {
-    display: inline-flex;
-}
-#pageHead ul li form input{
-    margin-right: 15px;
-}
 /* メイン部分 */
 #main {
     background-color: blue;
@@ -53,22 +18,15 @@ body {
 }
 
 #main .bookPhrase {
-    border: solid 1px ;
+    border: solid 1px;
+    margin-top: 15px;
 }
+
 #main .bookPhrase p a {
     text-decoration: none;
     display: block;
 }
+
 #main .bookPhrase p a:hover {
     opacity: 0.7;
-}
-
-#pageFoot {
-    background-color: green;
-    font-size: 12px;
-    color: #cccccc;
-    text-align: center;
-    border-top: 1px solid #cccccc;
-    padding: 10px 0 20px;
-    margin-top: 15px;
 }
