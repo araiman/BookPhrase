@@ -4,16 +4,25 @@ package model;
  * Created by RyomaArai on 15/04/02.
  */
 public class BookInfo {
-    // TODO imgAddressを単体の変数にするか、配列にするかを確定させる
+    private String detailPageURL;
     private String imgAddress;
-    private String merchandiseAddress;
+    private String isbn_str;
 
-    BookInfo() {
+    public BookInfo() {
     }
 
-    BookInfo(String imgAddress, String merchandiseAddress) {
+    public BookInfo(String detailPageURL, String imgAddress, String isbn_str) {
+        this.detailPageURL = detailPageURL;
         this.imgAddress = imgAddress;
-        this.merchandiseAddress = merchandiseAddress;
+        this.isbn_str = isbn_str;
+    }
+
+    public String getDetailPageURL() {
+        return this.detailPageURL;
+    }
+
+    public void setDetailPageURL(String detailPageURL) {
+        this.detailPageURL = detailPageURL;
     }
 
     public String getImgAddress() {
@@ -24,11 +33,12 @@ public class BookInfo {
         this.imgAddress = imgAddress;
     }
 
-    public String getMerchandiseAddress() {
-        return this.merchandiseAddress;
+    public String getIsbn_str() {
+        return this.isbn_str;
     }
 
-    public void setMerchandiseAddress(String merchandiseAddress) {
-        this.merchandiseAddress = merchandiseAddress;
+    public void setIsbn_str(String isbn_str) {
+        this.isbn_str = isbn_str;
     }
+
 }

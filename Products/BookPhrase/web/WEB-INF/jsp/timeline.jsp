@@ -21,10 +21,10 @@
     <div id="main">
         <c:forEach var="post" items="${latestTlList}" varStatus="status">
             <section class="bookPhrase">
-                <p><a name="post${status.count}" href="">${post.phrase}</a></p>
+                <p><a name="post${status.count}" href="/EachBookServlet?isbn-str=${post.isbn}&post-count=0">${post.phrase}</a></p>
             </section>
         </c:forEach>
-        <p><a href="/TlServlet?postcount=${fn:length(latestTlList)}#post${fn:length(latestTlList)}">さらに表示する</a></p>
+        <p><a href="/TlServlet?post-count=${fn:length(latestTlList)}#post${fn:length(latestTlList)}">さらに表示する</a></p>
     </div>
     <!-- #main -->
     <jsp:include page="footer.jsp"></jsp:include>

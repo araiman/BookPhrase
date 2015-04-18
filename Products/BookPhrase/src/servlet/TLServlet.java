@@ -25,7 +25,7 @@ public class TlServlet extends HttpServlet {
         List<Post> latestTlList = null;
 
         // 表示するPostの数を取得
-        String postCount = request.getParameter("postcount");
+        String postCount = request.getParameter("post-count");
 
         // postCountによる場合わけ
         if (postCount == null) {
@@ -36,6 +36,16 @@ public class TlServlet extends HttpServlet {
         }
         // 最新のポストをリクエストスコープに保存
         request.setAttribute("latestTlList", latestTlList);
+
+        // FBログインの場合のユーザー検索と、セッションへの保存
+        if (request.getParameter("fb-user-id") != null) {
+            // TODO データベースからのユーザーID取得の実装
+            String fbUserId = request.getParameter("fb-user-id");
+            /*String userId =  DAOからの取得Logic */
+
+            // TODO セッションスコープへの、ユーザーIDの保存
+        }
+
 
         // ページの遷移
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/timeline.jsp");
