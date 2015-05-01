@@ -4,20 +4,20 @@ package model;
  * Created by RyomaArai on 15/04/12.
  */
 public class Account {
-    private int userId;
+    private long userId;
 
     public Account() {
     }
 
-    public Account(int userId) {
+    public Account(long userId) {
         this.userId = userId;
     }
 
-    public int getUserId() {
+    public long getUserId() {
         return this.userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 }

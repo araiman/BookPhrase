@@ -1,7 +1,6 @@
 package servlet;
 
-import model.GetLatestPostsLogic;
-import model.Post;
+import model.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -36,16 +36,6 @@ public class TlServlet extends HttpServlet {
         }
         // 最新のポストをリクエストスコープに保存
         request.setAttribute("latestTlList", latestTlList);
-
-        // FBログインの場合のユーザー検索と、セッションへの保存
-        if (request.getParameter("fb-user-id") != null) {
-            // TODO データベースからのユーザーID取得の実装
-            String fbUserId = request.getParameter("fb-user-id");
-            /*String userId =  DAOからの取得Logic */
-
-            // TODO セッションスコープへの、ユーザーIDの保存
-        }
-
 
         // ページの遷移
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/timeline.jsp");

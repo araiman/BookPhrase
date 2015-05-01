@@ -42,7 +42,7 @@ public class GetBookURLsLogic {
             InputStream is = connection.getInputStream();
 
             // XMLから、要素を取り出す
-            // TODO もっと、短くかけるのではないか？検討する。
+            // TODO 読みづらい。短くかけるのではないか？もしくは、別ファイルとして管理すべきではないか。
             Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(is);
             Element elementRoot = document.getDocumentElement();
 

@@ -18,7 +18,6 @@
             <h1 id="siteTitle">ブクフレ</h1>
         </li>
         <li>
-            <!-- TODO formのaction先を指定する -->
             <form id="search" action="" method="post">
                 <input type="text">
                 <input type="submit" value="search">
