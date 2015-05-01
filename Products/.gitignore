@@ -1,5 +1,6 @@
-/BookPhrase/src/dao
 /BookPhrase/src/model/GetBookInfoLogic.java
 /BookPhrase/src/model/AmazonSignedRequestsHelper.java
+/BookPhrase/src/model/DBInfo.java
 /BookPhrase/web/WEB-INF/jsp/login.jsp
+/BookPhrase/src/servlet/TwSignInServlet.java
 /BookPhrase/out
