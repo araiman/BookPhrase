@@ -1,9 +1,11 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  * Created by RyomaArai on 15/04/02.
  */
-public class BookInfo {
+public class BookInfo implements Serializable {
     private String detailPageURL;
     private String imgAddress;
     private String isbn_str;

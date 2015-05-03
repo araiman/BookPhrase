@@ -38,15 +38,17 @@ public class LoginServlet extends HttpServlet {
             return;
         }
 
-        if (userId_str != "") {
+        if (userId_str == null) {
+            String errorMsg = "何らかの原因でログインできませんでした。再度ログインして下さい。";
+            Error error = new Error(errorMsg);
+            request.setAttribute("error", error);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
+            dispatcher.forward(request, response);
+        } else {
             Account account = new Account(Long.parseLong(userId_str));
             HttpSession session = request.getSession();
             session.setAttribute("account", account);
             RequestDispatcher dispatcher = request.getRequestDispatcher("TlServlet");
-            dispatcher.forward(request, response);
-        } else {
-            System.out.println("ログインに失敗しました");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
             dispatcher.forward(request, response);
         }
     }

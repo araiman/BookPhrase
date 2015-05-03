@@ -11,7 +11,8 @@ public class GetUserByTwIdLogic {
         String user_id = dao.findByTwId(twUserId_str);
         if (user_id != null) {
             return user_id;
+        } else {
+           return null;
         }
-        return "";
     }
 }

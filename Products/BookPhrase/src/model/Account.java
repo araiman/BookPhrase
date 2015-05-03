@@ -1,9 +1,11 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  * Created by RyomaArai on 15/04/12.
  */
-public class Account {
+public class Account implements Serializable {
     private long userId;
 
     public Account() {

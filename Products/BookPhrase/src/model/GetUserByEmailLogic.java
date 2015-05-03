@@ -11,7 +11,8 @@ public class GetUserByEmailLogic {
         String user_id = dao.findByEmail(email, password);
         if (user_id != null) {
             return user_id;
+        } else {
+            return null;
         }
-        return "";
     }
 }

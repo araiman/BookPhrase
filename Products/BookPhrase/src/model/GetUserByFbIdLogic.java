@@ -11,7 +11,8 @@ public class GetUserByFbIdLogic {
         String user_id = dao.findByFbId(fbUserId_str);
         if (user_id != null) {
             return user_id;
+        } else {
+            return null;
         }
-        return "";
     }
 }

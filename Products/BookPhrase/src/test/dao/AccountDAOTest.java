@@ -7,7 +7,7 @@ import dao.AccountDAO;
  */
 public class AccountDAOTest {
     public static void main(String[] args) {
-        /* Facebookテスト
+        /*Facebookテスト
         AccountDAO dao = new AccountDAO();
         String userId = dao.findByFbId("634884089989415");
 
@@ -18,6 +18,7 @@ public class AccountDAOTest {
             System.out.println("テストに失敗しました");
         }
         */
+
 
         /* twitterテスト
         AccountDAO dao = new AccountDAO();
@@ -31,7 +32,7 @@ public class AccountDAOTest {
         }
         */
 
-        /* Emailテスト */
+        /* Emailテスト
         AccountDAO dao = new AccountDAO();
 
         // 成功するはず
@@ -48,5 +49,6 @@ public class AccountDAOTest {
         } else {
             System.out.println("テストに失敗しました");
         }
+        */
     }
 }

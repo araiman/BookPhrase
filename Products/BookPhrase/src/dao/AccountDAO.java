@@ -15,7 +15,7 @@ public class AccountDAO {
         String url = dbInfo.getUrl();
         String user = dbInfo.getUser();
         String password = dbInfo.getPassword();
-        String userId = "";
+        String userId;
 
         try {
             // JDBCドライバを読み込む
@@ -31,7 +31,9 @@ public class AccountDAO {
             // SECLECT文を実行し、結果表を取得
             ResultSet resultSet = pSmt.executeQuery();
 
-            if (resultSet != null) {
+            if (!resultSet.next()) {
+                return null;
+            } else {
                 resultSet.next();
                 userId = resultSet.getString("id");
             }
@@ -61,7 +63,7 @@ public class AccountDAO {
         String url = dbInfo.getUrl();
         String user = dbInfo.getUser();
         String password = dbInfo.getPassword();
-        String userId = "";
+        String userId;
 
         try {
             // JDBCドライバを読み込む
@@ -77,7 +79,9 @@ public class AccountDAO {
             // SECLECT文を実行し、結果表を取得
             ResultSet resultSet = pSmt.executeQuery();
 
-            if (resultSet != null) {
+            if (!resultSet.next()) {
+                return null;
+            } else {
                 resultSet.next();
                 userId = resultSet.getString("id");
             }
@@ -123,7 +127,10 @@ public class AccountDAO {
             // SECLECT文を実行し、結果表を取得
             ResultSet resultSet = pSmt.executeQuery();
 
-            if (resultSet != null) {
+            if (!resultSet.next()) {
+                System.out.println("指定のユーザーは存在しませんでした。nullを返します。");
+                return null;
+            } else {
                 resultSet.next();
                 userId = resultSet.getString("id");
             }
@@ -145,6 +152,5 @@ public class AccountDAO {
             }
         }
         return userId;
-
     }
 }
