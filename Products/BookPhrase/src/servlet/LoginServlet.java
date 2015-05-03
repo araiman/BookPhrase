@@ -1,8 +1,7 @@
 package servlet;
 
-import model.Account;
-import model.GetUserByFbIdLogic;
-import model.GetUserByTwIdLogic;
+import model.*;
+import model.Error;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -34,6 +33,7 @@ public class LoginServlet extends HttpServlet {
         } else {
             RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
             dispatcher.forward(request, response);
+            return;
         }
 
         if (userId_str != "") {
@@ -49,9 +49,35 @@ public class LoginServlet extends HttpServlet {
         }
     }
 
+    // Emailログインの場合の処理
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/TlServlet");
-        dispatcher.forward(request, response);
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        String userId_str = "";
+
+        if (email != "" && password != "") {
+            GetUserByEmailLogic logic = new GetUserByEmailLogic();
+            userId_str = logic.execute(email, password);
+        } else {
+            String errorMsg = "Email、パスワードの、どちらか、もしくは両方に、入力の不備があります。";
+            Error error = new Error(errorMsg);
+            request.setAttribute("error", error);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
+            dispatcher.forward(request, response);
+            return;
+        }
+
+        if (userId_str != "") {
+            Account account = new Account(Long.parseLong(userId_str));
+            HttpSession session = request.getSession();
+            session.setAttribute("account", account);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/TlServlet");
+            dispatcher.forward(request, response);
+        } else {
+            System.out.println("DBからユーザーIDを取得できませんでした。DBを確認してください。");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/LoginServlet");
+            dispatcher.forward(request, response);
+        }
     }
 
 }
