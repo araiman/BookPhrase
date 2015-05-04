@@ -32,6 +32,11 @@ public class LoginServlet extends HttpServlet {
             GetUserByTwIdLogic logic = new GetUserByTwIdLogic();
             String twUserId = request.getParameter("tw-user-id");
             userId_str = logic.execute(twUserId);
+        } else if (request.getAttribute("error") != null){
+            Error error = (Error)request.getAttribute("error");
+            request.setAttribute("error", error);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+            dispatcher.forward(request, response);
         } else {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
             dispatcher.forward(request, response);
