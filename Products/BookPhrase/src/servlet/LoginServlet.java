@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
             String twUserId = request.getParameter("tw-user-id");
             userId_str = logic.execute(twUserId);
         } else {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
             dispatcher.forward(request, response);
             return;
         }
@@ -42,13 +42,13 @@ public class LoginServlet extends HttpServlet {
             String errorMsg = "何らかの原因でログインできませんでした。再度ログインして下さい。";
             Error error = new Error(errorMsg);
             request.setAttribute("error", error);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
             dispatcher.forward(request, response);
         } else {
             Account account = new Account(Long.parseLong(userId_str));
             HttpSession session = request.getSession();
             session.setAttribute("account", account);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("TlServlet");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/TlServlet");
             dispatcher.forward(request, response);
         }
     }
@@ -63,7 +63,7 @@ public class LoginServlet extends HttpServlet {
             String errorMsg = "Email、パスワードの、どちらか、もしくは両方に、入力の不備があります。";
             Error error = new Error(errorMsg);
             request.setAttribute("error", error);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
             dispatcher.forward(request, response);
             return;
         } else {
@@ -75,7 +75,7 @@ public class LoginServlet extends HttpServlet {
             String errorMsg = "Email、パスワードのどちらか、もしくは両方が、間違っています。";
             Error error = new Error(errorMsg);
             request.setAttribute("error", error);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
             dispatcher.forward(request, response);
             return;
         } else {
