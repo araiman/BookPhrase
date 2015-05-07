@@ -60,8 +60,8 @@ public class LoginServlet extends HttpServlet {
 
     // Emailログインの場合の処理
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String email = request.getParameter("email");
-        String userPassword = request.getParameter("password");
+        String email = request.getParameter("email").trim();
+        String userPassword = request.getParameter("password").trim();
         String userId_str;
 
         if (email == "" || userPassword == "") {
