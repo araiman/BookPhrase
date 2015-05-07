@@ -17,14 +17,14 @@ public class EachBookDAO {
         DBInfo dbInfo = new DBInfo();
         String url = dbInfo.getUrl();
         String user = dbInfo.getUser();
-        String password = dbInfo.getPassword();
+        String dbPassword = dbInfo.getPassword();
 
         try {
             // JDBCドライバを読み込む
             Class.forName("com.mysql.jdbc.Driver");
 
             // データベースに接続
-            conn = DriverManager.getConnection(url, user, password);
+            conn = DriverManager.getConnection(url, user, dbPassword);
 
             // LIMITの値を作成する
             int limit_int = Integer.parseInt(postCount) + 20;

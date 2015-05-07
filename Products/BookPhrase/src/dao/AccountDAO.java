@@ -15,7 +15,7 @@ public class AccountDAO {
         DBInfo dbInfo = new DBInfo();
         String url = dbInfo.getUrl();
         String user = dbInfo.getUser();
-        String password = dbInfo.getPassword();
+        String dbPassword = dbInfo.getPassword();
         String userId;
 
         try {
@@ -23,7 +23,7 @@ public class AccountDAO {
             Class.forName("com.mysql.jdbc.Driver");
 
             // データベースに接続
-            conn = DriverManager.getConnection(url, user, password);
+            conn = DriverManager.getConnection(url, user, dbPassword);
 
             // SELECT文を準備
             String sql = "SELECT id FROM accounts WHERE fb_id=" + fbUserId_str;
@@ -62,7 +62,7 @@ public class AccountDAO {
         DBInfo dbInfo = new DBInfo();
         String url = dbInfo.getUrl();
         String user = dbInfo.getUser();
-        String password = dbInfo.getPassword();
+        String dbPassword = dbInfo.getPassword();
         String userId;
 
         try {
@@ -70,7 +70,7 @@ public class AccountDAO {
             Class.forName("com.mysql.jdbc.Driver");
 
             // データベースに接続
-            conn = DriverManager.getConnection(url, user, password);
+            conn = DriverManager.getConnection(url, user, dbPassword);
 
             // SELECT文を準備
             String sql = "SELECT id FROM accounts WHERE tw_id=" + twUserId_str;
@@ -197,7 +197,7 @@ public class AccountDAO {
         DBInfo dbInfo = new DBInfo();
         String url = dbInfo.getUrl();
         String user = dbInfo.getUser();
-        String password = dbInfo.getPassword();
+        String dbPassword = dbInfo.getPassword();
         String userId;
 
         try {
@@ -205,7 +205,7 @@ public class AccountDAO {
             Class.forName("com.mysql.jdbc.Driver");
 
             // データベースに接続
-            conn = DriverManager.getConnection(url, user, password);
+            conn = DriverManager.getConnection(url, user, dbPassword);
 
             // SELECT文を準備
             String sql = "SELECT id FROM accounts DESC LIMIT 1";
