@@ -64,7 +64,7 @@ public class LoginServlet extends HttpServlet {
         String userPassword = request.getParameter("password").trim();
         String userId_str;
 
-        if (email == "" || userPassword == "") {
+        if (email == null || email.equals("") || userPassword == null || userPassword.equals("")) {
             String errorMsg = "Email、パスワードの、どちらか、もしくは両方に、入力の不備があります。";
             Error error = new Error(errorMsg);
             request.setAttribute("error", error);
@@ -76,7 +76,7 @@ public class LoginServlet extends HttpServlet {
             userId_str = logic.execute(email, userPassword);
         }
 
-        if (userId_str == null) {
+        if (userId_str == null || userId_str.equals("")) {
             String errorMsg = "Email、パスワードのどちらか、もしくは両方が、間違っています。";
             Error error = new Error(errorMsg);
             request.setAttribute("error", error);
