@@ -20,7 +20,7 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
     public static final long serialVersionUID = 1L;
 
-    // ログインしていない / FBログイン / Twログイン の場合の処理
+    // ログインしていない / FBログイン / Twログイン の処理
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String userId_str = "";
 
@@ -61,10 +61,10 @@ public class LoginServlet extends HttpServlet {
     // Emailログインの場合の処理
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
-        String password = request.getParameter("password");
+        String userPassword = request.getParameter("password");
         String userId_str;
 
-        if (email == "" || password == "") {
+        if (email == "" || userPassword == "") {
             String errorMsg = "Email、パスワードの、どちらか、もしくは両方に、入力の不備があります。";
             Error error = new Error(errorMsg);
             request.setAttribute("error", error);
@@ -73,7 +73,7 @@ public class LoginServlet extends HttpServlet {
             return;
         } else {
             GetUserByEmailLogic logic = new GetUserByEmailLogic();
-            userId_str = logic.execute(email, password);
+            userId_str = logic.execute(email, userPassword);
         }
 
         if (userId_str == null) {
